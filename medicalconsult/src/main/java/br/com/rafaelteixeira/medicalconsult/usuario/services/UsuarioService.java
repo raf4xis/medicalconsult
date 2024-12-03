@@ -32,9 +32,19 @@ public class UsuarioService {
         usuarioRepository.delete(usuario);
     }
     public Usuario atualizarUsuario(Long id, Usuario usuarioAtualizado) {
+
         Usuario usuarioExistente = buscarUsuario(id);
 
-        usuarioExistente = usuarioAtualizado;
+
+        usuarioExistente.setNomeUsuario(usuarioAtualizado.getNomeUsuario());
+        usuarioExistente.setEmail(usuarioAtualizado.getEmail());
+        usuarioExistente.setTelefone(usuarioAtualizado.getTelefone());
+        usuarioExistente.setCpf(usuarioAtualizado.getCpf());
+        usuarioExistente.setDataNascimento(usuarioAtualizado.getDataNascimento());
+
+
+
+
         return usuarioRepository.save(usuarioExistente);
     }
 }
